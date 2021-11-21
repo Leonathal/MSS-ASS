@@ -6,8 +6,9 @@
 - a working application in accordance to presented diagrams: 
   - 2 appropriate design patterns implemented 
   - a working demo 
-  
- # The platform supports different users/roles (eg. admin, facilitator, player) 
+
+ # Problem description 
+ The platform supports different users/roles (eg. admin, facilitator, player) 
  There are different types of events (eg. indoor/outdoor, 1v1/2v2/11v11, coop or vs, etc). 
  For each event there can be one or more facilitator who will conduct a particular sports activity. 
  Players can make requests to enrol or can be assigned to activities automatically based on their set preferences 
