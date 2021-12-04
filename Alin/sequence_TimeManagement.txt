@@ -1,0 +1,53 @@
+title Time Management
+
+actor User
+User->+Application: Automatically Enrol
+
+Application->+Time Manager: Get instance
+
+opt Instance == Null
+    Time Manager->Time Manager: New instance
+end
+
+Time Manager-->Application: Instance
+
+Application->Application: Get user preferences
+
+note right of Application: 
+    User preferences are read from 
+    a data persistance system (db, file, etc.)
+end note
+
+Application->Time Manager: User preferences
+
+Application->+Time Manager: Calculate schedule
+
+alt Enrol based on list of activities/events
+    opt list contains events
+        Time Manager->Application: Get activities from events
+        Application-->Time Manager: Activities
+    end
+else Enrol based on time
+    Time Manager->Application: Activities during time interval
+    Application-->Time Manager: Activities
+end
+
+Time Manager->Time Manager: Filter activities
+
+Time Manager->Time Manager: Sort activites
+
+loop through activity list
+    alt current activity is the first
+        Time Manager->Time Manager: Select activity
+    else last activity ended before current one
+        Time Manager->Time Manager: Select activity
+    end
+    Time Manager->Time Manager: Go to next activity
+end
+
+Time Manager-->-Application: Possible schedule
+
+Application-->-User: Automatic Enrolment Finished
+
+User->(2)Application: Confirmation
+
