@@ -16,6 +16,9 @@
  Players should have the possibility to view the results of sports events, as well as the leaderboards for the day, week, month, overall. 
  Admins handle any objections or complaints raised by the players, by discussing with the facilitators and awarding points to players, 
  penalties to facilitators or removing access to any of them on the platform.
+ 
+ # Documentation
+ https://docs.google.com/document/d/11gVg2lQkOFw5izpT6PL8I9ti1JDSWmGdi53PTzt-Eo8/edit?usp=sharing
 
 
 # Team Diagram
