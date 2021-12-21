@@ -32,7 +32,19 @@ else Enrol based on time
     Application-->Time Manager: Activities
 end
 
+note right of Time Manager:
+    Filter the activities based 
+    on received user preferences
+end note
+
 Time Manager->Time Manager: Filter activities
+
+note right of Time Manager:
+    Sort activities on ascending
+    order based on starting time...
+    (Other things can be used to sort
+    activities to provide a better result)
+end note
 
 Time Manager->Time Manager: Sort activites
 
