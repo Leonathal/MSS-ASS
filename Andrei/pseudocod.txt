@@ -1,0 +1,60 @@
+abstract class User() {
+
+	String user;
+
+	abstract void getUserType(){}
+}
+
+
+class Admin extends User{  
+	@override  
+	public void getUserType(){  
+		user="Admin";              
+	}  
+}  
+
+
+class  Facilitator extends User{  
+   @override   
+    public void getUserType(){   
+        user="Facilitator";  
+}   
+
+
+class  Player extends User{  
+   @override  
+    public void getUserType(){   
+        user="Player";  
+}   
+   
+   
+class UserFactory{  
+      
+       public User getUser(String userType){  
+            if(userType == null){  
+             return null;  
+            }  
+          if(userType.equalsIgnoreCase("Admin")) {  
+                 return new Admin();  
+               }   
+           else if(userType.equalsIgnoreCase("Facilitator")){  
+                return new Facilitator();  
+            }   
+          else if(userType.equalsIgnoreCase("Player")) {  
+                return new Player();  
+          }  
+      return null;  
+   }  
+}
+
+
+class GenerateUser{  
+    main(){  
+      UserFactory userFactory = new UserFactory();  
+  
+      String userType = depending on what actions were performed in the UI;  
+  
+      User user = userFactory.getUser(userType);  
+      }  
+    }
+	
