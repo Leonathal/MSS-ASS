@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WinFormApp.Utils
-{
-    public class TimeManager : Singleton<TimeManager>
+﻿    public class TimeManager : Singleton<TimeManager>
     {
         private TimeManager()
         {
@@ -23,4 +17,3 @@ namespace WinFormApp.Utils
             }
         }
     }
-}
