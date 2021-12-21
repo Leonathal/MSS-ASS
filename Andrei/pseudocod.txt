@@ -54,7 +54,7 @@ class GenerateUser{
   
       String userType = depending on what actions were performed in the UI;  
   
-      User p = userFactory.getUser(userType);  
+      User user = userFactory.getUser(userType);  
       }  
     }
 	
