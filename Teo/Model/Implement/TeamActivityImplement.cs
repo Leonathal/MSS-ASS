@@ -7,9 +7,6 @@ namespace WinFormApp.Model.Implement
 {
     public class TeamActivityImplement : ActivityImplement
     {
-        public override string getActivityName()
-        {
-            return "Team Activity";
-        }
+
     }
 }

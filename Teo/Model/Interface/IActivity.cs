@@ -6,7 +6,15 @@ namespace WinFormApp.Model.Interface
 {
     public interface IActivity
     {
-        String getActivityName();
+        public void setActivityName(String name);
+        public String getActivityName();
+        public String getWinner();
+        public List<String> getScoreBoard();
+        Tuple<DateTime, DateTime> getOverallTimeSlot();
+        void setStartTime(DateTime time);
+        void setEndTime(DateTime time);
+        void addParticipant(int id);
+        void removeParticipant(int id);
 
     }
 }
