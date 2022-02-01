@@ -15,6 +15,7 @@
 # Build results
 WinFormApp/WinFormApp/bin/Debug/
 WinFormApp/WinFormApp/bin/Release/
+WinFormApp/WinFormApp/obj/
 WinFormApp/WinFormApp/obj/Debug/
 WinFormApp/WinFormApp/obj/Release/
 
