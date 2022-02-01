@@ -8,6 +8,10 @@ namespace WinFormApp
 {
     public class Event : IEvent, IEvent_TM
     {
+        public Event()
+        {
+            activities = new List<ActivityImplement>();
+        }
         public List<ActivityImplement> getActivities()
         {
             return activities;
@@ -46,6 +50,11 @@ namespace WinFormApp
         public string getEventName()
         {
            return eventName;
+        }
+
+        public void addActivity(IActivity activity)
+        {
+            activities.Add((ActivityImplement)activity);
         }
 
         private List<ActivityImplement> activities;

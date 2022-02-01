@@ -9,6 +9,8 @@ namespace WinFormApp
     public interface IEvent
     {
         List<ActivityImplement> getActivities();
+
+        void addActivity(IActivity activity);
         List<int> getWinners();
         Tuple<DateTime, DateTime> getOverallTimeSlot();
         void setStartTime(DateTime time);

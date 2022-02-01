@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormApp.EventsActivity.Forms;
 
 namespace WinFormApp
 {
@@ -17,5 +18,10 @@ namespace WinFormApp
             InitializeComponent();
         }
 
+        private void createEventButton_Click(object sender, EventArgs e)
+        {
+            NewEventForm nef = new NewEventForm();
+            nef.Show();
+        }
     }
 }
