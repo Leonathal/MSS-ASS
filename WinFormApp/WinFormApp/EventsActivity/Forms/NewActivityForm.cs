@@ -18,7 +18,11 @@ namespace WinFormApp.EventsActivity.Forms
 
         private void createActivityButton_Click(object sender, EventArgs e)
         {
+            activity.setActivityName(this.activityNameTextBox.Text);
+            activity.setStartTime(this.timePickerStart.Value);
+            activity.setEndTime(this.timePickerEnd.Value);
 
+            this.Close();
         }
 
         private IActivity activity;

@@ -6,6 +6,11 @@ namespace WinFormApp
 {
     public class ActivityImplement : IActivity, IActivity_TM
     {
+        public ActivityImplement()
+        {
+            scoreboard = new List<string>();
+            participants = new HashSet<int>();
+        }
         
         public virtual string getActivityName()
         {
