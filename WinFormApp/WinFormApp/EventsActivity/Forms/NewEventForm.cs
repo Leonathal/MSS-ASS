@@ -17,14 +17,13 @@ namespace WinFormApp.EventsActivity.Forms
             teamActivityFactory = new TeamActivityFactory();
             _event = new Event();
 
-            activities = new List<IActivity>();
+            activities = new List<ActivityImplement>();
 
         }
 
         private void createActivityButton_Click(object sender, EventArgs e)
         {
             activity = activityFactory.CreateActivity();
-            activities.Add(activity);
             _event.addActivity(activity);
             NewActivityForm actFrm = new NewActivityForm(activity);
             actFrm.FormClosed += delegate
@@ -39,6 +38,7 @@ namespace WinFormApp.EventsActivity.Forms
         private void UpdateActivityList()
         {
             activitiesListView.Items.Clear();
+            activities = _event.getActivities();
             foreach (IActivity activity in activities)
                 activitiesListView.Items.Add(activity.getActivityName());
         }
@@ -46,7 +46,6 @@ namespace WinFormApp.EventsActivity.Forms
         private void createTeamActivityButton_Click(object sender, EventArgs e)
         {
             activity = teamActivityFactory.CreateActivity();
-            activities.Add(activity);
             _event.addActivity(activity);
             NewActivityForm actFrm = new NewActivityForm(activity);
             actFrm.FormClosed += delegate
@@ -61,6 +60,6 @@ namespace WinFormApp.EventsActivity.Forms
         private IEvent _event;
         private ActivityFactoryAbstract activityFactory;
         private ActivityFactoryAbstract teamActivityFactory;
-        private List<IActivity> activities;
+        private List<ActivityImplement> activities;
     }
 }
