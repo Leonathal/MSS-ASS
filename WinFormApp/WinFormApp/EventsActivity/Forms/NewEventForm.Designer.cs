@@ -86,6 +86,7 @@
             // 
             // activitiesListView
             // 
+            this.activitiesListView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.activitiesListView.HideSelection = false;
             this.activitiesListView.Location = new System.Drawing.Point(158, 90);
             this.activitiesListView.Name = "activitiesListView";
@@ -131,5 +132,6 @@
         private System.Windows.Forms.Button createTeamActivityButton;
         private System.Windows.Forms.ListView activitiesListView;
         private System.Windows.Forms.Button removeActivityButton;
+        private System.Windows.Forms.ColumnHeader activityName;
     }
 }

@@ -17,6 +17,8 @@ namespace WinFormApp.EventsActivity.Forms
             activityFactory = new ActivityFactory();
             teamActivityFactory = new TeamActivityFactory();
             _event = new Event();
+            activitiesListView.View = View.Details;
+            activitiesListView.Columns.Add("Activity Name", 200, HorizontalAlignment.Left);
 
             activities = new List<ActivityImplement>();
 
@@ -42,7 +44,7 @@ namespace WinFormApp.EventsActivity.Forms
             activitiesListView.Items.Clear();
             activities = _event.getActivities();
             foreach (IActivity activity in activities)
-                activitiesListView.Items.Add(activity.getActivityName());
+                activitiesListView.Items.Add(new ListViewItem(activity.getActivityName()));
         }
 
         private void createTeamActivityButton_Click(object sender, EventArgs e)
