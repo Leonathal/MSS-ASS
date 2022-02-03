@@ -21,6 +21,10 @@ namespace WinFormApp.EventsActivity.Forms
                         "Category 4",
                         "Category 5"});
             categoryCombo.SelectedIndex = 0;
+            timePickerStart.Format = DateTimePickerFormat.Custom;
+            timePickerStart.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            timePickerEnd.Format = DateTimePickerFormat.Custom;
+            timePickerEnd.CustomFormat = "MM/dd/yyyy hh:mm:ss";
         }
 
         private void createActivityButton_Click(object sender, EventArgs e)
