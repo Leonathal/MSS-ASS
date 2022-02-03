@@ -18,5 +18,6 @@ namespace WinFormApp
         void setEventName(String name);
         String getEventName();
         void removeActivity(string selectedActivityName);
+        void setTimeSlots();
     }
 }

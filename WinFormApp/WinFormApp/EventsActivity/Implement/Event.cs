@@ -63,8 +63,26 @@ namespace WinFormApp
                 if(act.getActivityName().Equals(selectedActivityName))
                 {
                     activities.Remove(act);
+                    setTimeSlots();
                     return;
                 }
+        }
+
+        public void setTimeSlots()
+        {
+            if (activities.Count > 0)
+            {
+                timeSlotStart = activities[0].getOverallTimeSlot().Item1;
+                timeSlotEnd = activities[0].getOverallTimeSlot().Item2;
+                foreach (ActivityImplement act in activities)
+                {
+                    Tuple<DateTime, DateTime> time = act.getOverallTimeSlot();
+                    if(timeSlotStart < time.Item1)
+                        timeSlotStart = time.Item1;
+                    if(timeSlotEnd > time.Item2)
+                        timeSlotEnd = time.Item2;
+                }
+            } 
         }
 
         private List<ActivityImplement> activities;

@@ -13,6 +13,7 @@ namespace WinFormApp.EventsActivity.Forms
         public NewActivityForm(IActivity _activity)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             activity = _activity;
             categoryCombo.Items.AddRange(new object[] {"Category 1",
                         "Category 2",

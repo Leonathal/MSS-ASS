@@ -13,6 +13,7 @@ namespace WinFormApp.EventsActivity.Forms
         public NewEventForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             activityFactory = new ActivityFactory();
             teamActivityFactory = new TeamActivityFactory();
             _event = new Event();
@@ -29,6 +30,7 @@ namespace WinFormApp.EventsActivity.Forms
             actFrm.FormClosed += delegate
             {
                 UpdateActivityList();
+                _event.setTimeSlots();
             };
 
             actFrm.Show();
@@ -51,6 +53,7 @@ namespace WinFormApp.EventsActivity.Forms
             actFrm.FormClosed += delegate
             {
                 UpdateActivityList();
+                _event.setTimeSlots();
             };
             actFrm.Show();
         }

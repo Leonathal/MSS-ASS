@@ -41,7 +41,7 @@
             // 
             // createActivityButton
             // 
-            this.createActivityButton.Location = new System.Drawing.Point(595, 391);
+            this.createActivityButton.Location = new System.Drawing.Point(595, 243);
             this.createActivityButton.Name = "createActivityButton";
             this.createActivityButton.Size = new System.Drawing.Size(175, 33);
             this.createActivityButton.TabIndex = 1;
@@ -122,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 291);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.categoryCombo);
             this.Controls.Add(this.label3);
