@@ -4,10 +4,10 @@ using System.Text;
 
 namespace WinFormApp
 {
-    public interface IActivityCategory_TM
+    public class ActivityCategory
     {
         String CategoryName { get; }
-        public bool IsEqual(IActivityCategory_TM otherPreference)
+        public bool IsEqual(ActivityCategory otherPreference)
         {
             return CategoryName.Equals(otherPreference.CategoryName);
         }

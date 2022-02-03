@@ -8,26 +8,26 @@ namespace WinFormApp
     {
         public DateTime StartTime { get; }
         public DateTime EndTime { get; }
-        public List<IActivityCategory_TM> Categories { get; set; }
+        public List<ActivityCategory> Categories { get; set; }
 
-        private bool IsInPreference(IActivityCategory_TM userPreference)
+        private bool IsInPreference(ActivityCategory userPreference)
         {
             for(int idxCategory = 0; idxCategory < Categories.Count; idxCategory++)
             {
-                IActivityCategory_TM category = Categories[idxCategory];
+                ActivityCategory category = Categories[idxCategory];
                 if (category.IsEqual(userPreference))
                     return true;
             }
             return false;
         }
-        public bool IsInPreferences(List<IActivityCategory_TM> userPreferences)
+        public bool IsInPreferences(List<ActivityCategory> userPreferences)
         {
             if (userPreferences == null)
                 return true;
 
             for(int idxUserPref = 0; idxUserPref < userPreferences.Count; idxUserPref++)
             {
-                IActivityCategory_TM userPreference = userPreferences[idxUserPref];
+                ActivityCategory userPreference = userPreferences[idxUserPref];
                 if (IsInPreference(userPreference))
                     return true;
             }

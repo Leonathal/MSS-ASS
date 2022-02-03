@@ -40,7 +40,7 @@ namespace WinFormApp
             }
         }
         
-        private List<IActivity_TM> AutomaticallyEnrol(List<IActivity_TM> activities, List<IActivityCategory_TM> userPreferences)
+        private List<IActivity_TM> AutomaticallyEnrol(List<IActivity_TM> activities, List<ActivityCategory> userPreferences)
         {
             List<IActivity_TM> possibleActivities = new List<IActivity_TM>(activities);
 
@@ -72,7 +72,7 @@ namespace WinFormApp
         {
             // Fetch data
             List<IActivity_TM> activities = application.GetActivities(events);
-            List<IActivityCategory_TM> userPreferences = application.GetUserPreferences();
+            List<ActivityCategory> userPreferences = application.GetUserPreferences();
 
             // Compute schedule
             List<IActivity_TM> posibleSchedule = AutomaticallyEnrol(activities, userPreferences);
@@ -88,7 +88,7 @@ namespace WinFormApp
         {
             // Fetch data
             List<IActivity_TM> activities = application.GetActivities(startTime, endTime);
-            List<IActivityCategory_TM> userPreferences = application.GetUserPreferences();
+            List<ActivityCategory> userPreferences = application.GetUserPreferences();
 
             // Compute schedule
             List<IActivity_TM> posibleSchedule = AutomaticallyEnrol(activities, userPreferences);

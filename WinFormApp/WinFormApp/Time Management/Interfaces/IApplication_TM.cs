@@ -8,7 +8,7 @@ namespace WinFormApp.TimeManagement
     {
         public List<IActivity_TM> GetActivities(List<IEvent_TM> events);
         public List<IActivity_TM> GetActivities(DateTime startTime, DateTime endTime);
-        public List<IActivityCategory_TM> GetUserPreferences();
+        public List<ActivityCategory> GetUserPreferences();
         public void SetPossibleSchedule(List<IActivity_TM> activities);
     }
 }
