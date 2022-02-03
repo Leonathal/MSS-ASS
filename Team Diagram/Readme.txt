@@ -1,0 +1,1 @@
+Diagrama principala este Main.svg, restul sunt anexe.
