@@ -35,6 +35,8 @@
             this.timePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.categoryCombo = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // createActivityButton
@@ -98,11 +100,31 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Time slot end";
             // 
+            // categoryCombo
+            // 
+            this.categoryCombo.FormattingEnabled = true;
+            this.categoryCombo.Location = new System.Drawing.Point(187, 185);
+            this.categoryCombo.Name = "categoryCombo";
+            this.categoryCombo.Size = new System.Drawing.Size(121, 23);
+            this.categoryCombo.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(30, 187);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 21);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Category";
+            // 
             // NewActivityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.categoryCombo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.timePickerEnd);
@@ -126,5 +148,7 @@
         private System.Windows.Forms.DateTimePicker timePickerEnd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox categoryCombo;
+        private System.Windows.Forms.Label label4;
     }
 }

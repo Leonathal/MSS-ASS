@@ -8,6 +8,8 @@ namespace WinFormApp
     {
         public void setActivityName(String name);
         public String getActivityName();
+        public  String getCategory();
+        public void setCategory(String _category);
         public String getWinner();
         public List<String> getScoreBoard();
         Tuple<DateTime, DateTime> getOverallTimeSlot();

@@ -14,6 +14,11 @@ namespace WinFormApp.EventsActivity.Forms
         {
             InitializeComponent();
             activity = _activity;
+            categoryCombo.Items.AddRange(new object[] {"Category 1",
+                        "Category 2",
+                        "Category 3",
+                        "Category 4",
+                        "Category 5"});
         }
 
         private void createActivityButton_Click(object sender, EventArgs e)
@@ -21,7 +26,7 @@ namespace WinFormApp.EventsActivity.Forms
             activity.setActivityName(this.activityNameTextBox.Text);
             activity.setStartTime(this.timePickerStart.Value);
             activity.setEndTime(this.timePickerEnd.Value);
-
+            activity.setCategory(this.categoryCombo.SelectedItem.ToString());
             this.Close();
         }
 

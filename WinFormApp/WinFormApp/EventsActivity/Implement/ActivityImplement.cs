@@ -21,6 +21,16 @@ namespace WinFormApp
         {
             activityName = name;
         }
+        
+        public  String getCategory()
+        {
+            return category;
+        }
+
+        public void setCategory(String _category)
+        {
+            category = _category;
+        }
 
         public string getWinner()
         {
@@ -58,6 +68,7 @@ namespace WinFormApp
         }
 
         private String activityName;
+        private String category;
         private List<String> scoreboard;
         private DateTime timeSlotStart;
         private DateTime timeSlotEnd;
