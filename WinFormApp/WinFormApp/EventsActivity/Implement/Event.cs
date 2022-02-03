@@ -57,6 +57,16 @@ namespace WinFormApp
             activities.Add((ActivityImplement)activity);
         }
 
+        public void removeActivity(string selectedActivityName)
+        {
+            foreach(ActivityImplement act in activities)
+                if(act.getActivityName().Equals(selectedActivityName))
+                {
+                    activities.Remove(act);
+                    return;
+                }
+        }
+
         private List<ActivityImplement> activities;
         private List<int> winners;
         private DateTime timeSlotStart;

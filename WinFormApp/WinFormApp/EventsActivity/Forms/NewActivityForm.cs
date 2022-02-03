@@ -19,6 +19,7 @@ namespace WinFormApp.EventsActivity.Forms
                         "Category 3",
                         "Category 4",
                         "Category 5"});
+            categoryCombo.SelectedIndex = 0;
         }
 
         private void createActivityButton_Click(object sender, EventArgs e)

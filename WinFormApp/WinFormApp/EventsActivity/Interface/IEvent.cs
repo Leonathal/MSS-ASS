@@ -17,5 +17,6 @@ namespace WinFormApp
         void setEndTime(DateTime time);
         void setEventName(String name);
         String getEventName();
+        void removeActivity(string selectedActivityName);
     }
 }

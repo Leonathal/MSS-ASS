@@ -61,5 +61,12 @@ namespace WinFormApp.EventsActivity.Forms
         private ActivityFactoryAbstract activityFactory;
         private ActivityFactoryAbstract teamActivityFactory;
         private List<ActivityImplement> activities;
+
+        private void removeActivityButton_Click(object sender, EventArgs e)
+        {
+            var selectedActivityName = activitiesListView.SelectedItems[0].Text;
+            _event.removeActivity(selectedActivityName);
+            UpdateActivityList();
+        }
     }
 }

@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.createTeamActivityButton = new System.Windows.Forms.Button();
             this.activitiesListView = new System.Windows.Forms.ListView();
+            this.removeActivityButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // createActivityButton
@@ -92,11 +93,22 @@
             this.activitiesListView.TabIndex = 6;
             this.activitiesListView.UseCompatibleStateImageBehavior = false;
             // 
+            // removeActivityButton
+            // 
+            this.removeActivityButton.Location = new System.Drawing.Point(505, 219);
+            this.removeActivityButton.Name = "removeActivityButton";
+            this.removeActivityButton.Size = new System.Drawing.Size(175, 33);
+            this.removeActivityButton.TabIndex = 7;
+            this.removeActivityButton.Text = "Remove Activity";
+            this.removeActivityButton.UseVisualStyleBackColor = true;
+            this.removeActivityButton.Click += new System.EventHandler(this.removeActivityButton_Click);
+            // 
             // NewEventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.removeActivityButton);
             this.Controls.Add(this.activitiesListView);
             this.Controls.Add(this.createTeamActivityButton);
             this.Controls.Add(this.label2);
@@ -118,5 +130,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button createTeamActivityButton;
         private System.Windows.Forms.ListView activitiesListView;
+        private System.Windows.Forms.Button removeActivityButton;
     }
 }
