@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 
 namespace WinFormApp
 {
+    [Serializable, XmlRoot("Event")]
     public class StorageEvent
     {
 

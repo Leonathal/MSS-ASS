@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace WinFormApp
 {
+    [Serializable, XmlRoot("Activity")]
     public class StorageActivity
     {
         public String ActivityName { get; set; }

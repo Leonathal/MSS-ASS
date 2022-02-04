@@ -37,21 +37,44 @@ namespace WinFormApp
 
         public void SaveEvents(List<EventImplement> events)
         {
+            StorageMain storageMain = new StorageMain();
             TextWriter writer = new StreamWriter(STORAGE_FILE);
             foreach(EventImplement eventImplement in events)
             {
                 StorageEvent storageEvent = eventImplement.ToSerial();
-
-                XmlSerializer xmlSerializer = new XmlSerializer(typeof(StorageEvent));
-                xmlSerializer.Serialize(writer, storageEvent);
+                storageMain.AddEvent(storageEvent);
             }
+
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(StorageMain));
+            xmlSerializer.Serialize(writer, storageMain);
+
+            writer.Close();
         }
 
-        public List<EventImplement> ReadEvents()
+        public bool ReadData()
         {
-            List<EventImplement> events = new List<EventImplement>();
+            if (!File.Exists(STORAGE_FILE))
+                return false;
 
-            return events;
+            MainApp mainApp = MainApp.Instance;
+            StorageMain storageMain;
+            FileStream fs = new FileStream(STORAGE_FILE, FileMode.Open);
+            
+            XmlSerializer serializer = new XmlSerializer(typeof(StorageMain));
+            storageMain = (StorageMain)serializer.Deserialize(fs);
+
+            List<EventImplement> events = new List<EventImplement>();
+            
+            foreach(StorageEvent storageEvent in storageMain.StorageEvents)
+            {
+                EventImplement eventImplement = new EventImplement();
+                eventImplement.FromSerial(storageEvent);
+                events.Add(eventImplement);
+            }
+
+            mainApp.Events = events;
+            fs.Close();
+            return true;
         }
         #endregion
     }

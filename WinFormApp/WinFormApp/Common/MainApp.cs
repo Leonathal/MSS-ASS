@@ -9,14 +9,14 @@ namespace WinFormApp
     {
         // --------------------------- [Members & Properties] ---------------------------
         #region Members & Properties
-
+        public List<EventImplement> Events { get; set; }
         #endregion
 
         // --------------------------- [Ctors] ---------------------------
         #region Ctors
         private MainApp()
         {
-
+            Events = new List<EventImplement>();
         }
         #endregion
 
