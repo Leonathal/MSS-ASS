@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormApp.EventsActivity.Forms;
+using WinFormsApp;
 
 namespace WinFormApp
 {
     public partial class Form1 : Form
     {
-        public Form1()
+
+        private User _loggedUser;
+
+        public Form1(User loggedUser)
         {
+            _loggedUser = loggedUser;
             InitializeComponent();
         }
 
@@ -22,6 +27,26 @@ namespace WinFormApp
         {
             NewEventForm nef = new NewEventForm();
             nef.Show();
+        }
+
+        private void manageActivitiesButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void enrollActivitiesButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewPreferencesButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void resolveComplainButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

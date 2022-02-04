@@ -3,7 +3,7 @@
 
 namespace WinFormsApp
 {
-    abstract class User
+    public abstract class User
     {
         public abstract string UserType { get; }
 
