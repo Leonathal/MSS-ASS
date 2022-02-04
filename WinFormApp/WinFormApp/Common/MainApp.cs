@@ -10,6 +10,7 @@ namespace WinFormApp
         // --------------------------- [Members & Properties] ---------------------------
         #region Members & Properties
         public List<EventImplement> Events { get; set; }
+        protected List<ActivityCategory> UserPreferences { get; private set; }
         #endregion
 
         // --------------------------- [Ctors] ---------------------------
@@ -17,6 +18,7 @@ namespace WinFormApp
         private MainApp()
         {
             Events = new List<EventImplement>();
+            UserPreferences = null;
         }
         #endregion
 
@@ -36,17 +38,41 @@ namespace WinFormApp
 
         public List<IActivity_TM> GetActivities(List<IEvent_TM> events)
         {
-            throw new NotImplementedException();
+            List<IActivity_TM> activities = new List<IActivity_TM>();
+
+            foreach(IEvent_TM event_TM in events)
+            {
+                foreach(IActivity_TM activity_TM in event_TM.Activities_TM)
+                {
+                    activities.Add(activity_TM);
+                }
+            }
+
+            return activities;
         }
 
         public List<IActivity_TM> GetActivities(DateTime startTime, DateTime endTime)
         {
-            throw new NotImplementedException();
+            List<IActivity_TM> activities = new List<IActivity_TM>();
+
+            foreach(EventImplement eventImplement in Events)
+            {
+                List<IActivity_TM> eventActivities = eventImplement.Activities_TM;
+                foreach (IActivity_TM activity in eventActivities)
+                {
+                    if(startTime.Ticks <= activity.StartTime.Ticks && activity.StartTime.Ticks <= endTime.Ticks)
+                    {
+                        activities.Add(activity);
+                    }
+                }
+            }
+
+            return activities;
         }
 
         public List<ActivityCategory> GetUserPreferences()
         {
-            throw new NotImplementedException();
+            return UserPreferences;
         }
 
         public void RegisterInActivities(List<IActivity_TM> activities)

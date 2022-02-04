@@ -13,6 +13,9 @@ namespace WinFormApp
 
         private bool IsInPreference(ActivityCategory userPreference)
         {
+            if(userPreference == null)
+                return true;
+
             for(int idxCategory = 0; idxCategory < Categories.Count; idxCategory++)
             {
                 ActivityCategory category = Categories[idxCategory];

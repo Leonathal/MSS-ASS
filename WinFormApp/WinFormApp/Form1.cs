@@ -50,7 +50,8 @@ namespace WinFormApp
 
         private void enrollActivitiesButton_Click(object sender, EventArgs e)
         {
-
+            TimeManagement.Forms.EnrollInActivities enrollInActivities = new TimeManagement.Forms.EnrollInActivities();
+            enrollInActivities.ShowDialog();
         }
 
         private void viewPreferencesButton_Click(object sender, EventArgs e)
