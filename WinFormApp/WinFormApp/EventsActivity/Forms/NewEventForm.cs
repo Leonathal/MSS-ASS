@@ -16,7 +16,7 @@ namespace WinFormApp.EventsActivity.Forms
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             activityFactory = new ActivityFactory();
             teamActivityFactory = new TeamActivityFactory();
-            _event = new Event();
+            _event = new EventImplement();
             activitiesListView.View = View.Details;
             activitiesListView.Columns.Add("Activity Name", 200, HorizontalAlignment.Left);
 

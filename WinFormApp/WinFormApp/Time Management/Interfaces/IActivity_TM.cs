@@ -6,6 +6,7 @@ namespace WinFormApp
 {
     public interface IActivity_TM
     {
+        public String Name { get; }
         public DateTime StartTime { get; }
         public DateTime EndTime { get; }
         public List<ActivityCategory> Categories { get; set; }

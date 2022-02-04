@@ -67,12 +67,34 @@ namespace WinFormApp
             participants.Remove(id);
         }
 
-        private String activityName;
-        private String category;
-        private List<String> scoreboard;
-        private DateTime timeSlotStart;
-        private DateTime timeSlotEnd;
-        private HashSet<int> participants;
+        protected String activityName;
+        protected String category;
+        protected List<String> scoreboard;
+        protected DateTime timeSlotStart;
+        protected DateTime timeSlotEnd;
+        protected HashSet<int> participants;
+
+        #region Serialization & Deserialization
+        public virtual StorageActivity ToSerial()
+        {
+            StorageActivity storageActivity = new StorageActivity(
+                activityName,
+                category,
+                scoreboard,
+                timeSlotStart,
+                timeSlotEnd);
+            return storageActivity;
+        }
+
+        public virtual void FromSerial(StorageActivity storageActivity)
+        {
+            activityName = storageActivity.ActivityName;
+            category = storageActivity.Category;
+            scoreboard = storageActivity.Scoreboard;
+            timeSlotStart = storageActivity.StartTime;
+            timeSlotEnd = storageActivity.EndTime;
+        }
+        #endregion
 
         public DateTime StartTime
         {
@@ -87,6 +109,14 @@ namespace WinFormApp
             get
             {
                 return timeSlotEnd;
+            }
+        }
+
+        public String Name
+        { 
+            get
+            {
+                return activityName;
             }
         }
 
