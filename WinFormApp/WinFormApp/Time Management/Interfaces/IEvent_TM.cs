@@ -6,6 +6,6 @@ namespace WinFormApp
 {
     public interface IEvent_TM
     {
-        public List<IActivity_TM> Activities { get; }
+        public List<IActivity_TM> Activities_TM { get; }
     }
 }

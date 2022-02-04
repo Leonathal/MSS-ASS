@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace WinFormApp
 {
@@ -8,7 +10,7 @@ namespace WinFormApp
     {
         // --------------------------- [Members & Properties] ---------------------------
         #region Members & Properties
-        
+        private readonly String STORAGE_FILE = "Storage.xml";
         #endregion
 
         // --------------------------- [Ctors] ---------------------------
@@ -33,14 +35,21 @@ namespace WinFormApp
             }
         }
 
-        public void SaveEvents(List<Event> events)
+        public void SaveEvents(List<EventImplement> events)
         {
+            TextWriter writer = new StreamWriter(STORAGE_FILE);
+            foreach(EventImplement eventImplement in events)
+            {
+                StorageEvent storageEvent = eventImplement.ToSerial();
 
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(StorageEvent));
+                xmlSerializer.Serialize(writer, storageEvent);
+            }
         }
 
-        public List<Event> ReadEvents()
+        public List<EventImplement> ReadEvents()
         {
-            List<Event> events = new List<Event>();
+            List<EventImplement> events = new List<EventImplement>();
 
             return events;
         }

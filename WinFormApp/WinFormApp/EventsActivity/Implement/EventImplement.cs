@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace WinFormApp
 {
-    public class Event : IEvent, IEvent_TM
+    public class EventImplement : IEvent, IEvent_TM
     {
-        public Event()
+        public EventImplement()
         {
             activities = new List<ActivityImplement>();
         }
@@ -91,7 +92,46 @@ namespace WinFormApp
         private DateTime timeSlotEnd;
         private String eventName;
 
-        public List<IActivity_TM> Activities
+        #region Serialization & Deserialization
+        public StorageEvent ToSerial()
+        {
+            StorageEvent serialEvent = new StorageEvent();
+            foreach(ActivityImplement activityImplement in activities)
+            {
+                StorageActivity storageActivity = activityImplement.ToSerial();
+                serialEvent.Activities.Add(storageActivity);
+            }
+            serialEvent.Winners = winners;
+            serialEvent.StartTime = timeSlotStart;
+            serialEvent.EndTime = timeSlotEnd;
+            serialEvent.EventName = eventName;
+            return serialEvent;
+        }
+
+        public void FromSerial(StorageEvent serialEvent)
+        {
+            foreach(StorageActivity storageActivity in serialEvent.Activities)
+            {
+                ActivityImplement activityImplement = null;
+                if(storageActivity.GetType().IsSubclassOf(typeof(StorageTeamActivity)))
+                    activityImplement = new TeamActivityImplement();
+                else if(storageActivity.GetType().IsSubclassOf(typeof(StorageActivity)))
+                    activityImplement = new ActivityImplement();
+
+                if(activityImplement != null)
+                {
+                    activityImplement.FromSerial(storageActivity);
+                    activities.Add(activityImplement);
+                }
+            }
+            winners = serialEvent.Winners;
+            timeSlotStart = serialEvent.StartTime;
+            timeSlotEnd = serialEvent.EndTime;
+            eventName = serialEvent.EventName;
+        }
+        #endregion
+
+        public List<IActivity_TM> Activities_TM
         {
             get
             {
