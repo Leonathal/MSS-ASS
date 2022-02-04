@@ -17,7 +17,12 @@ namespace WinFormApp.TimeManagement.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DateTime startTime = startDateTimePicker.Value;
+            DateTime endTime = endDateTimePicker.Value;
 
+            MainApp mainApp = MainApp.Instance;
+            TimeManager timeManager = TimeManager.Instance;
+            timeManager.AutomaticallyEnrol(mainApp, startTime, endTime);
         }
 
         private void button2_Click(object sender, EventArgs e)
