@@ -113,9 +113,9 @@ namespace WinFormApp
             foreach(StorageActivity storageActivity in serialEvent.Activities)
             {
                 ActivityImplement activityImplement = null;
-                if(storageActivity.GetType().IsSubclassOf(typeof(StorageTeamActivity)))
+                if(storageActivity.GetType() == typeof(StorageTeamActivity))
                     activityImplement = new TeamActivityImplement();
-                else if(storageActivity.GetType().IsSubclassOf(typeof(StorageActivity)))
+                else if(storageActivity.GetType() == typeof(StorageActivity))
                     activityImplement = new ActivityImplement();
 
                 if(activityImplement != null)

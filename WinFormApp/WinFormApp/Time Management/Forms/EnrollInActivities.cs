@@ -22,7 +22,12 @@ namespace WinFormApp.TimeManagement.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
+            MainApp mainApp = MainApp.Instance;
+            DateTime startTime = startDateTimePicker.Value;
+            DateTime endTime = endDateTimePicker.Value;
 
+            List<IActivity_TM> activities = mainApp.GetActivities(startTime, endTime);
+            mainApp.SetPossibleSchedule(activities);
         }
     }
 }

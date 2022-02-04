@@ -37,15 +37,25 @@ namespace WinFormApp
             activity2.setStartTime(DateTime.Now.AddDays(2));
             activity2.setEndTime(DateTime.Now.AddDays(3));
 
+            TeamActivityImplement activity3 = new TeamActivityImplement();
+            activity3.setActivityName("Test Activity 3");
+            activity3.setStartTime(DateTime.Now.AddDays(3));
+            activity3.setEndTime(DateTime.Now.AddDays(4));
+
+            TeamActivityImplement activity4 = new TeamActivityImplement();
+            activity4.setActivityName("Test Activity 4");
+            activity4.setStartTime(DateTime.Now.AddDays(4));
+            activity4.setEndTime(DateTime.Now.AddDays(5));
+
             EventImplement eventImplement1 = new EventImplement();
             eventImplement1.addActivity(activity1);
             eventImplement1.addActivity(activity2);
 
             EventImplement eventImplement2 = new EventImplement();
-            eventImplement2.addActivity(activity1);
-            eventImplement2.addActivity(activity2);
+            eventImplement2.addActivity(activity3);
+            eventImplement2.addActivity(activity4);
 
-            switch (0)
+            switch (2)
             {
                 case (1): // Test possible schedule
                     List<IActivity_TM> activities = new List<IActivity_TM>();
