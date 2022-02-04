@@ -52,6 +52,9 @@ namespace WinFormApp
 
             // Compute possible schedule
             List<IActivity_TM> schedule = new List<IActivity_TM>();
+            if (possibleActivities.Count == 0)
+                return schedule;
+
             IActivity_TM lastActivity = possibleActivities[0]; // Last activity inserted in schedule
             schedule.Add(lastActivity);
             
