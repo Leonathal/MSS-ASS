@@ -111,7 +111,7 @@ namespace WinFormsApp
             // 
             // ageTextBox
             // 
-            this.ageTextBox.Location = new System.Drawing.Point(272, 160);
+            this.ageTextBox.Location = new System.Drawing.Point(272, 211);
             this.ageTextBox.Name = "ageTextBox";
             this.ageTextBox.Size = new System.Drawing.Size(293, 23);
             this.ageTextBox.TabIndex = 7;
@@ -119,7 +119,7 @@ namespace WinFormsApp
             // ageLabel
             // 
             this.ageLabel.AutoSize = true;
-            this.ageLabel.Location = new System.Drawing.Point(177, 163);
+            this.ageLabel.Location = new System.Drawing.Point(177, 214);
             this.ageLabel.Name = "ageLabel";
             this.ageLabel.Size = new System.Drawing.Size(28, 15);
             this.ageLabel.TabIndex = 6;
@@ -128,7 +128,7 @@ namespace WinFormsApp
             // dateOfBirthLabel
             // 
             this.dateOfBirthLabel.AutoSize = true;
-            this.dateOfBirthLabel.Location = new System.Drawing.Point(177, 214);
+            this.dateOfBirthLabel.Location = new System.Drawing.Point(177, 163);
             this.dateOfBirthLabel.Name = "dateOfBirthLabel";
             this.dateOfBirthLabel.Size = new System.Drawing.Size(73, 15);
             this.dateOfBirthLabel.TabIndex = 6;
@@ -136,7 +136,7 @@ namespace WinFormsApp
             // 
             // dateOfBirthTextBox
             // 
-            this.dateOfBirthTextBox.Location = new System.Drawing.Point(272, 211);
+            this.dateOfBirthTextBox.Location = new System.Drawing.Point(272, 160);
             this.dateOfBirthTextBox.Name = "dateOfBirthTextBox";
             this.dateOfBirthTextBox.Size = new System.Drawing.Size(293, 23);
             this.dateOfBirthTextBox.TabIndex = 7;
@@ -163,6 +163,7 @@ namespace WinFormsApp
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(293, 23);
             this.passwordTextBox.TabIndex = 11;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // passwordLabel
             // 
@@ -239,60 +240,74 @@ namespace WinFormsApp
         private void Register_Click(object sender, EventArgs e)
         {
             UserFactory userFactory = null;
-            int userId = int.Parse(userIdTextBox.Text);
-            Debug.WriteLine("User id: {0}", userId);
-
-            string firstName = firstNameTextBox.Text;
-            Debug.WriteLine("First name: {0}", firstName);
-
-            string lastName = lastNameTextBox.Text;
-            Debug.WriteLine("Last name: {0}", lastName);
-
-            int age = int.Parse(ageTextBox.Text);
-            Debug.WriteLine("Age: {0}", age);
-
-            DateTime dateOfBirth = Convert.ToDateTime(dateOfBirthTextBox.Text);
-            Debug.WriteLine("Date of birth: {0}", dateOfBirth);
-
-            string email = emailTextBox.Text;
-            Debug.WriteLine("Email: {0}", email);
-
-            string password = passwordTextBox.Text;
-            Debug.WriteLine("Password: {0}", password);
-
-            string userType = userTypeTextBox.Text;
-            Debug.WriteLine("User type: {0}", userType);
-
-
-            switch (userType.ToLower())
+            if (userIdTextBox.Text.Length > 0 && firstNameTextBox.Text.Length > 0 && lastNameTextBox.Text.Length > 0 && ageTextBox.Text.Length > 0 &&
+                dateOfBirthTextBox.Text.Length > 0 && emailTextBox.Text.Length > 0 && passwordTextBox.Text.Length > 0 && userTypeTextBox.Text.Length > 0)
             {
-                case "admin":
-                    userFactory = new AdminFactory(userId, firstName, lastName, age, dateOfBirth, email, password);
-                    break;
-                case "facilitator":
-                    userFactory = new FacilitatorFactory(userId, firstName, lastName, age, dateOfBirth, email, password);
-                    break;
-                case "player":
-                    userFactory = new PlayerFactory(userId, firstName, lastName, age, dateOfBirth, email, password);
-                    break;
-                default:
-                    break;
+                int userId = int.Parse(userIdTextBox.Text);
+                Debug.WriteLine("User id: {0}", userId);
+
+                string firstName = firstNameTextBox.Text;
+                Debug.WriteLine("First name: {0}", firstName);
+
+                string lastName = lastNameTextBox.Text;
+                Debug.WriteLine("Last name: {0}", lastName);
+
+                int age = int.Parse(ageTextBox.Text);
+                Debug.WriteLine("Age: {0}", age);
+
+                DateTime dateOfBirth = Convert.ToDateTime(dateOfBirthTextBox.Text);
+                Debug.WriteLine("Date of birth: {0}", dateOfBirth);
+
+                string email = emailTextBox.Text;
+                Debug.WriteLine("Email: {0}", email);
+
+                string password = passwordTextBox.Text;
+                Debug.WriteLine("Password: {0}", password);
+
+                string userType = userTypeTextBox.Text;
+                Debug.WriteLine("User type: {0}", userType);
+
+
+                switch (userType.ToLower())
+                {
+                    case "admin":
+                        userFactory = new AdminFactory(userId, firstName, lastName, age, dateOfBirth, email, password);
+                        break;
+                    case "facilitator":
+                        userFactory = new FacilitatorFactory(userId, firstName, lastName, age, dateOfBirth, email, password);
+                        break;
+                    case "player":
+                        userFactory = new PlayerFactory(userId, firstName, lastName, age, dateOfBirth, email, password);
+                        break;
+                    default:
+                        break;
+                }
             }
+            if (userFactory != null)
+            {
+                User user = userFactory.GetUserType();
+                Debug.WriteLine("\nYour user details are below : \n");
+                Debug.WriteLine("User Type: {0}\nFirst name: {1}\nLast name: {2}\nAge: {3}\nDate of birth: {4}\nEmail: {5}\nPassword: {6}\nUser id: {7}",
+                    user.UserType, user.FirstName, user.LastName, user.Age, user.DateOfBirth, user.Email, user.Password, user.UserId);
+                String userToTxtFile = "User Type: " + user.UserType + ", First name: " + user.FirstName + ", Last name: " + user.LastName + ", Age: " + user.Age
+                    + ", Date of birth: " + user.DateOfBirth + ", Email: " + user.Email + ", Password: " + user.Password + ", User id: " + user.UserId + "\n";
 
-            User user = userFactory.GetUserType();
-            Debug.WriteLine("\nYour user details are below : \n");
-            Debug.WriteLine("User Type: {0}\nFirst name: {1}\nLast name: {2}\nAge: {3}\nDate of birth: {4}\nEmail: {5}\nPassword: {6}\nUser id: {7}",
-                user.UserType, user.FirstName, user.LastName, user.Age, user.DateOfBirth, user.Email, user.Password, user.UserId);
-            String userToTxtFile = "User Type: " + user.UserType + ", First name: " + user.FirstName + ", Last name: " + user.LastName + ", Age: " + user.Age
-                + ", Date of birth: " + user.DateOfBirth + ", Email: " + user.Email + ", Password: " + user.Password + ", User id: " + user.UserId + "\n";
+                TextWriter tsw = new StreamWriter(@"C:\Users\Andrei Badeci\Documents\Info\Facultate\Master\MSS + ASS\MSS-ASS\WinFormApp\WinFormApp\jucatori.txt", true);
 
-            TextWriter tsw = new StreamWriter(@"C:\Users\Andrei Badeci\Documents\Info\Facultate\Master\MSS + ASS\MSS-ASS\WinFormApp\WinFormApp\jucatori.txt", true);
+                //Writing text to the file.
+                tsw.WriteLine(userToTxtFile);
 
-            //Writing text to the file.
-            tsw.WriteLine(userToTxtFile);
+                //Close the file.
+                tsw.Close();
 
-            //Close the file.
-            tsw.Close();
+                this.Hide();
+                var loginForm = new WinFormApp.Login();
+                loginForm.Closed += (s, args) => this.Close();
+                loginForm.Show();
+            } else
+            {
+                Debug.WriteLine("User is null");
+            }
 
         }
 

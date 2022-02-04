@@ -1,7 +1,6 @@
+User Type: ADMIN, First name: Vasile, Last name: Pielosu, Age: 52, Date of birth: 04/20/1969 00:00:00, Email: vasilepielosu@gmail.com, Password: Vasile, User id: 1
 
-User Type: PLAYER, First name: Test, Last name: Test, Age: 69, Date of birth: 05/05/1995 00:00:00, Email: test, Password: Test, User id: 1
+User Type: FACILITATOR, First name: Facilitator, Last name: Test, Age: 121, Date of birth: 01/01/1901 00:00:00, Email: facilitatorTest@gmail.com, Password: Facilitator, User id: 2
 
-User Type: ADMIN, First name: Vasile, Last name: Pielosu, Age: 69, Date of birth: 05/05/1995 00:00:00, Email: vasilepielosu, Password: Vasile, User id: 2
-
-User Type: ADMIN, First name: Andrei, Last name: Badeci, Age: 24, Date of birth: 12/28/1997 00:00:00, Email: andreibadeci@gmil.com, Password: Andrei, User id: 3
+User Type: PLAYER, First name: Andrei, Last name: Badeci, Age: 24, Date of birth: 12/28/1997 00:00:00, Email: andreibadeci@gmail.com, Password: ParolaFoarteBuna, User id: 3
 

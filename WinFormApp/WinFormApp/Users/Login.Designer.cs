@@ -61,7 +61,6 @@ namespace WinFormApp
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(331, 23);
             this.emailTextBox.TabIndex = 2;
-            this.emailTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // passwordTextBox
             // 
@@ -69,6 +68,7 @@ namespace WinFormApp
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(331, 23);
             this.passwordTextBox.TabIndex = 3;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // loginButton
             // 
