@@ -292,7 +292,7 @@ namespace WinFormsApp
                 String userToTxtFile = "User Type: " + user.UserType + ", First name: " + user.FirstName + ", Last name: " + user.LastName + ", Age: " + user.Age
                     + ", Date of birth: " + user.DateOfBirth + ", Email: " + user.Email + ", Password: " + user.Password + ", User id: " + user.UserId + "\n";
 
-                TextWriter tsw = new StreamWriter(@"C:\Users\Andrei Badeci\Documents\Info\Facultate\Master\MSS + ASS\MSS-ASS\WinFormApp\WinFormApp\jucatori.txt", true);
+                TextWriter tsw = new StreamWriter(@"jucatori.txt", true);
 
                 //Writing text to the file.
                 tsw.WriteLine(userToTxtFile);

@@ -29,7 +29,7 @@ namespace WinFormApp
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string[] lines = File.ReadAllLines(@"C:\Users\Andrei Badeci\Documents\Info\Facultate\Master\MSS + ASS\MSS-ASS\WinFormApp\WinFormApp\jucatori.txt");
+            string[] lines = File.ReadAllLines(@"jucatori.txt");
 
             UserFactory userFactory = null;
             int userId = 0;
