@@ -55,8 +55,7 @@ namespace WinFormApp
             this.enrollActivitiesButton.UseVisualStyleBackColor = true;
             this.enrollActivitiesButton.Click += new System.EventHandler(this.enrollActivitiesButton_Click);
 
-            if (_loggedUser.UserType.Equals("FACILITATOR") || _loggedUser.UserType.Equals("ADMIN"))
-            {
+
                 this.createEventButton = new System.Windows.Forms.Button();
                 this.manageActivitiesButton = new System.Windows.Forms.Button();
 
@@ -81,10 +80,7 @@ namespace WinFormApp
                 this.manageActivitiesButton.Text = "Manage Activities";
                 this.manageActivitiesButton.UseVisualStyleBackColor = true;
                 this.manageActivitiesButton.Click += new System.EventHandler(this.manageActivitiesButton_Click);
-            }
 
-            if (_loggedUser.UserType.Equals("ADMIN"))
-            {
                 this.resolveComplainButton = new System.Windows.Forms.Button();
 
                 // 
@@ -97,7 +93,6 @@ namespace WinFormApp
                 this.resolveComplainButton.Text = "Resolve complain";
                 this.resolveComplainButton.UseVisualStyleBackColor = true;
                 this.resolveComplainButton.Click += new System.EventHandler(this.resolveComplainButton_Click);
-            }
 
             // 
             // Form1

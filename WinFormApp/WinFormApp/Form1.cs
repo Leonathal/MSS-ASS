@@ -21,6 +21,20 @@ namespace WinFormApp
         {
             _loggedUser = loggedUser;
             InitializeComponent();
+
+            createEventButton.Visible = false;
+            manageActivitiesButton.Visible = false;
+            resolveComplainButton.Visible = false;
+
+            if (_loggedUser.UserType.Equals("FACILITATOR") || _loggedUser.UserType.Equals("ADMIN"))
+            {
+                createEventButton.Visible = true;
+                manageActivitiesButton.Visible = true;
+            }
+            if (_loggedUser.UserType.Equals("ADMIN"))
+            {
+                resolveComplainButton.Visible = true;
+            }
         }
 
         private void createEventButton_Click(object sender, EventArgs e)
