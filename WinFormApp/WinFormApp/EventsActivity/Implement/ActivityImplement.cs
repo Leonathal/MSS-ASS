@@ -90,6 +90,14 @@ namespace WinFormApp
             }
         }
 
+        public String Name
+        { 
+            get
+            {
+                return activityName;
+            }
+        }
+
         public List<ActivityCategory> Categories { get; set; }
     }
 }
