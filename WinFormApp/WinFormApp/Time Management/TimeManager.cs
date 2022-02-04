@@ -45,7 +45,7 @@ namespace WinFormApp
             List<IActivity_TM> possibleActivities = new List<IActivity_TM>(activities);
 
             // Filter activities based on user preferences
-            int nRemovedActivities = possibleActivities.RemoveAll(activity => activity.IsInPreferences(userPreferences));
+            int nRemovedActivities = possibleActivities.RemoveAll(activity => activity.IsInPreferences(userPreferences) == false);
 
             // Order by starting time
             possibleActivities.Sort((first, second) => DateTime.Compare(first.StartTime, second.StartTime));
